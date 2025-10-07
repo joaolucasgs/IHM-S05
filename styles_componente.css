@@ -1,0 +1,183 @@
+:root {
+  --frequencia: #126ae2;
+  --nota: #126ae2;
+  --prova: #126ae2;
+  --nota-baixa: #d93025; /* <6 */
+  --nota-media: #f57c00; /* >=6 && <8 */
+  --nota-alta: #2e7d32; /* >=8 */
+  --bg-card: #ffffff;
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --radius-card: 12px;
+  --font-small: 13px;
+}
+
+/* Layout global adicional */
+body {
+  margin: 0;
+  background: #eceff1;
+  font-family: system-ui, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+.logo {
+  font-size: 20px;
+  color: #126ae2;
+  margin: 0;
+  font-weight: 600;
+}
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.app-content {
+  margin-top: 72px;
+  width: 100%;
+  max-width: 420px;
+  padding: 0 18px 48px;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+.welcome-card h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.notifs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.evento-card {
+  padding: 0;
+  overflow: hidden;
+}
+.evento-img {
+  height: 140px;
+  background: linear-gradient(135deg, #126ae2, #5c6bc0);
+}
+.evento-body {
+  padding: 14px 16px 18px;
+}
+.evento-body h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+.evento-body p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.evento-footer {
+  font-size: 12px;
+  color: #334;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.titulo_aula {
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lables {
+  display: flex;
+}
+
+.lable-prova,
+.lable-frequencia,
+.lable-nota {
+  background-color: var(--prova);
+  padding: 6px 14px;
+  margin-bottom: 10px;
+  border-radius: 500px;
+  text-align: center;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.lable-frequencia {
+  background-color: var(--frequencia);
+}
+
+.lable-nota {
+  background-color: var(--nota);
+}
+
+.p_lable {
+  font-size: 13px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Cartão base */
+.comp-aula {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 14px 16px 12px;
+  margin: 0 0 14px;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+.comp-aula .p {
+  font-size: var(--font-small);
+  margin: 4px 0 10px;
+}
+
+.lable-nota.nota-baixa {
+  background-color: var(--nota-baixa);
+}
+.lable-nota.nota-media {
+  background-color: var(--nota-media);
+}
+.lable-nota.nota-alta {
+  background-color: var(--nota-alta);
+}
+
+/* Container geral dentro do shadow */
+.aulas-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.erro-aulas {
+  color: #d93025;
+  font: 14px system-ui, Arial, sans-serif;
+  padding: 8px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo Prático 1</title>
+    <link rel="stylesheet" href="styles_componente.css" />
+  </head>
+
+  <body>
+    <header class="app-header">
+      <button class="btn-icon" aria-label="menu">☰</button>
+      <h1 class="logo">Inatel</h1>
+      <button class="btn-icon" aria-label="perfil">👤</button>
+    </header>
+    <main class="app-content">
+      <section class="card welcome-card">
+        <h2>Olá Raphael!</h2>
+        <ul class="notifs">
+          <li>📦 Você possui um armário reservado com entrega para hoje...</li>
+          <li>✉️ Você possui uma pendência no financeiro...</li>
+        </ul>
+      </section>
+      <section class="card aulas-section">
+        <aulas-component id="componente"></aulas-component>
+      </section>
+      <section class="card evento-card">
+        <div class="evento-img"></div>
+        <div class="evento-body">
+          <h3>Festa dos Alunos 2025</h3>
+          <p>Venha comemorar a melhor Festa dos Alunos de todos os tempos!</p>
+          <div class="evento-footer">📅 18/05 às 19:00  📍 Área Esportiva</div>
+        </div>
+      </section>
+    </main>
+    <script src="script_componente.js"></script>
+  </body>
+</html>
