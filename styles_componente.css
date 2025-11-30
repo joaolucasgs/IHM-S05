@@ -181,3 +181,67 @@ body {
   font: 14px system-ui, Arial, sans-serif;
   padding: 8px;
 }
+
+/* Serviços component styles */
+.servicos-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.servicos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.servico-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 12px;
+}
+.servico-card .p {
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.btn-primary {
+  background: var(--prova);
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-secondary {
+  background: #eef2f7;
+  color: #223;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+}
+.modal-content {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 16px;
+  width: 92%;
+  max-width: 420px;
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 420px) {
+  .servicos-grid {
+    grid-template-columns: 1fr;
+  }
+}

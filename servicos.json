@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "titulo": "Tutoria Acadêmica",
+    "resumo": "Apoio com dificuldades em disciplinas específicas através de monitores e tutores.",
+    "descricao": "Sessões individuais ou em pequenos grupos para resolver dúvidas, exercícios e preparar provas.",
+    "contato": "tutoria@inatel.br",
+    "tem_agendamento": true,
+    "disponibilidade": ["2025-12-01", "2025-12-02", "2025-12-03"]
+  },
+  {
+    "id": 2,
+    "titulo": "Orientação Pedagógica",
+    "resumo": "Apoio pedagógico para questões de organização de estudos e metodologias de aprendizado.",
+    "descricao": "Professores e orientadores ajudam a planejar cronogramas, técnicas de estudo e recuperação.",
+    "contato": "pedagogia@inatel.br",
+    "tem_agendamento": true,
+    "disponibilidade": ["2025-12-04", "2025-12-05", "2025-12-08"]
+  },
+  {
+    "id": 3,
+    "titulo": "Apoio Psicológico",
+    "resumo": "Atendimento psicológico para suporte emocional e bem-estar acadêmico.",
+    "descricao": "Sessões confidenciais com psicólogos para lidar com ansiedade, estresse e outras questões.",
+    "contato": "psicologia@inatel.br",
+    "tem_agendamento": true,
+    "disponibilidade": ["2025-12-01", "2025-12-07", "2025-12-10"]
+  },
+  {
+    "id": 4,
+    "titulo": "Monitora/Monitorias",
+    "resumo": "Atendimento em horários programados por monitores de várias disciplinas.",
+    "descricao": "Sessões em grupo para reforço de conteúdo, listas de exercícios e revisão para provas.",
+    "contato": "monitores@inatel.br",
+    "tem_agendamento": false,
+    "disponibilidade": []
+  }
+]
