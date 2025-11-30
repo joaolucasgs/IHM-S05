@@ -30,7 +30,6 @@ class ServicosComponent extends HTMLElement {
       this._cssAppended = true;
     }
 
-    // remove everything after the link
     Array.from(this.shadowRoot.childNodes).forEach((n, idx) => {
       if (idx > 0) this.shadowRoot.removeChild(n);
     });
@@ -91,16 +90,10 @@ class ServicosComponent extends HTMLElement {
 
     wrapper.appendChild(grid);
 
-    // modal container
-    const modalRoot = document.createElement("div");
-    modalRoot.id = "servicos-modal-root";
-    wrapper.appendChild(modalRoot);
-
     this.shadowRoot.appendChild(wrapper);
   }
 
   openDetalhes(servico) {
-    // create modal overlay
     const overlay = document.createElement("div");
     overlay.className = "modal";
 
@@ -146,11 +139,11 @@ class ServicosComponent extends HTMLElement {
     content.appendChild(actions);
 
     overlay.appendChild(content);
-    this.shadowRoot.appendChild(overlay);
+    // append modal to document body so it overlays whole page and uses global styles
+    document.body.appendChild(overlay);
   }
 
   openAgendamento(servico, parentOverlay = null) {
-    // remove previous overlay if present
     if (parentOverlay) parentOverlay.remove();
 
     const overlay = document.createElement("div");
@@ -172,7 +165,6 @@ class ServicosComponent extends HTMLElement {
     const inputDate = document.createElement("input");
     inputDate.type = "date";
     if (servico.disponibilidade && servico.disponibilidade.length) {
-      // set min/max from availability range (simple)
       inputDate.min = servico.disponibilidade[0];
       inputDate.value = servico.disponibilidade[0];
     }
@@ -227,13 +219,11 @@ class ServicosComponent extends HTMLElement {
         horario: selectTime.value,
         criadoEm: new Date().toISOString(),
       };
-      // salvar em localStorage
       const key = "agendamentos";
       const existentes = JSON.parse(localStorage.getItem(key) || "[]");
       existentes.push(ag);
       localStorage.setItem(key, JSON.stringify(existentes));
 
-      // mostrar confirmação simples
       content.innerHTML = `<h3>Agendamento confirmado</h3><p>Serviço: ${ag.servicoTitulo}</p><p>Data: ${ag.data} ${ag.horario}</p><p>Nome: ${ag.nome}</p>`;
       const ok = document.createElement("button");
       ok.className = "btn-primary";
@@ -245,7 +235,8 @@ class ServicosComponent extends HTMLElement {
     content.appendChild(h);
     content.appendChild(form);
     overlay.appendChild(content);
-    this.shadowRoot.appendChild(overlay);
+    // append modal to document body so it overlays whole page and uses global styles
+    document.body.appendChild(overlay);
   }
 }
 
