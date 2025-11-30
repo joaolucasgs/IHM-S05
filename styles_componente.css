@@ -223,13 +223,13 @@ body {
 
 /* modal */
 .modal {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 1000;
+  position: fixed !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  z-index: 99990 !important;
 }
 .modal-content {
   background: var(--bg-card);
@@ -238,6 +238,24 @@ body {
   width: 92%;
   max-width: 420px;
   box-shadow: var(--shadow-card);
+}
+
+.svc-btn-primary {
+  background: var(--prova) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+}
+.svc-btn-secondary {
+  background: #eef2f7 !important;
+  color: #223 !important;
+  border: none !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
 }
 
 @media (max-width: 420px) {

@@ -74,7 +74,7 @@ class ServicosComponent extends HTMLElement {
       contato.textContent = `✉️ ${s.contato}`;
 
       const btnMais = document.createElement("button");
-      btnMais.className = "btn-primary";
+      btnMais.className = "svc-btn-primary";
       btnMais.textContent = "Ver mais";
       btnMais.addEventListener("click", () => this.openDetalhes(s));
 
@@ -94,11 +94,21 @@ class ServicosComponent extends HTMLElement {
   }
 
   openDetalhes(servico) {
+    document.querySelectorAll(".svc-modal-host").forEach((n) => n.remove());
+
     const overlay = document.createElement("div");
-    overlay.className = "modal";
+    overlay.className = "modal svc-modal-host";
+    overlay.style.position = "fixed";
+    overlay.style.inset = "0";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.background = "rgba(0,0,0,0.35)";
+    overlay.style.zIndex = "99999";
 
     const content = document.createElement("div");
     content.className = "modal-content";
+    content.style.zIndex = "100000";
 
     const h = document.createElement("h3");
     h.textContent = servico.titulo;
@@ -120,15 +130,18 @@ class ServicosComponent extends HTMLElement {
     actions.style.marginTop = "12px";
 
     const btnFechar = document.createElement("button");
-    btnFechar.className = "btn-secondary";
+    btnFechar.className = "svc-btn-secondary";
     btnFechar.textContent = "Fechar";
-    btnFechar.addEventListener("click", () => overlay.remove());
+    btnFechar.addEventListener("click", () => {
+      overlay.remove();
+      document.body.style.overflow = "";
+    });
 
     actions.appendChild(btnFechar);
 
     if (servico.tem_agendamento) {
       const agendar = document.createElement("button");
-      agendar.className = "btn-primary";
+      agendar.className = "svc-btn-primary";
       agendar.textContent = "Agendar atendimento";
       agendar.addEventListener("click", () =>
         this.openAgendamento(servico, overlay)
@@ -139,7 +152,7 @@ class ServicosComponent extends HTMLElement {
     content.appendChild(actions);
 
     overlay.appendChild(content);
-    // append modal to document body so it overlays whole page and uses global styles
+    document.body.style.overflow = "hidden";
     document.body.appendChild(overlay);
   }
 
@@ -190,14 +203,17 @@ class ServicosComponent extends HTMLElement {
 
     const submit = document.createElement("button");
     submit.type = "submit";
-    submit.className = "btn-primary";
+    submit.className = "svc-btn-primary";
     submit.textContent = "Confirmar agendamento";
 
     const cancelar = document.createElement("button");
     cancelar.type = "button";
-    cancelar.className = "btn-secondary";
+    cancelar.className = "svc-btn-secondary";
     cancelar.textContent = "Cancelar";
-    cancelar.addEventListener("click", () => overlay.remove());
+    cancelar.addEventListener("click", () => {
+      overlay.remove();
+      document.body.style.overflow = "";
+    });
 
     form.appendChild(labelDate);
     form.appendChild(inputDate);
@@ -226,9 +242,12 @@ class ServicosComponent extends HTMLElement {
 
       content.innerHTML = `<h3>Agendamento confirmado</h3><p>Serviço: ${ag.servicoTitulo}</p><p>Data: ${ag.data} ${ag.horario}</p><p>Nome: ${ag.nome}</p>`;
       const ok = document.createElement("button");
-      ok.className = "btn-primary";
+      ok.className = "svc-btn-primary";
       ok.textContent = "Fechar";
-      ok.addEventListener("click", () => overlay.remove());
+      ok.addEventListener("click", () => {
+        overlay.remove();
+        document.body.style.overflow = "";
+      });
       content.appendChild(ok);
     });
 
